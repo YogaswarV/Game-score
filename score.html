@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Average Score Calculator</title>
+</head>
+<body>
+    <h1>Gaming Session Average Score Calculator</h1>
+    
+    <label for="scores">Enter the scores separated by commas:</label>
+    <input type="text" id="scores" placeholder="e.g., 85,90,78,92">
+    <button onclick="calculateAverage()">Calculate Average</button>
+    
+    <h2 id="result"></h2>
+    
+    <script>
+        function calculateAverage() {
+            // Get the input value
+            let scoresInput = document.getElementById('scores').value;
+            
+            // Convert the input string to an array of numbers
+            let scoresArray = scoresInput.split(',').map(Number);
+            
+            // Calculate the sum of the scores
+            let sum = scoresArray.reduce((acc, score) => acc + score, 0);
+            
+            // Calculate the average score
+            let average = sum / scoresArray.length;
+            
+            // Display the average score
+            document.getElementById('result').innerText = `Average Score: ${average.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>
